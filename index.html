@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Socios del Ateneo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ateneo Validator <span class="badge">AI</span></h1>
+            <p>Auditoría de correos de socios mediante IA</p>
+        </header>
+
+        <main class="glass-panel">
+            <div class="upload-section">
+                <input type="file" id="csvFileInput" accept=".csv" class="file-input">
+                <label for="csvFileInput" class="upload-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    Seleccionar archivo CSV
+                </label>
+                <p id="fileName" class="file-name">Ningún archivo seleccionado</p>
+                <button id="validateBtn" class="primary-btn" disabled>Validar Correos</button>
+            </div>
+
+            <div id="results" class="results-section hidden">
+                <div class="result-card valid">
+                    <h3>✅ Válidos (<span id="validCount">0</span>)</h3>
+                    <ul id="validList"></ul>
+                </div>
+                <div class="result-card invalid">
+                    <h3>❌ Inválidos (<span id="invalidCount">0</span>)</h3>
+                    <ul id="invalidList"></ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
