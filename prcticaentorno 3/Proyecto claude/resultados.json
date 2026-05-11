@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-05-11T12:30:45.123Z",
+  "totalSocios": 6,
+  "validos": 4,
+  "invalidos": 2,
+  "detalles": {
+    "validos": [
+      {
+        "nombre": "Juan Perez",
+        "correo": "juan.perez@example.com"
+      },
+      {
+        "nombre": "Maria Gomez",
+        "correo": "mariagomez@example.com"
+      },
+      {
+        "nombre": "Ana Lopez",
+        "correo": "ana.lopez@ateneo.org"
+      },
+      {
+        "nombre": "Roberto Martinez",
+        "correo": "roberto.martinez@ateneo.es"
+      }
+    ],
+    "invalidos": [
+      {
+        "nombre": "Carlos Ruiz",
+        "correo": "carlos@ruiz@example.com",
+        "razon": "Doble símbolo @ (no permitido)"
+      },
+      {
+        "nombre": "Pedro Sanchez",
+        "correo": "pedro@ateneo",
+        "razon": "Dominio sin TLD (falta punto + extensión)"
+      }
+    ]
+  },
+  "estadisticas": {
+    "tasa_validez": "66.67%",
+    "emails_correctos": 4,
+    "emails_erroneos": 2,
+    "patron_regex_usado": "/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/"
+  }
+}
