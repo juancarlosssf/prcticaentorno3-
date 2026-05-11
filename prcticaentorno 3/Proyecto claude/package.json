@@ -1,0 +1,13 @@
+{
+  "name": "validador-usuarios-ateneo",
+  "version": "1.0.0",
+  "description": "Validador de emails de socios del Ateneo",
+  "main": "validador.js",
+  "scripts": {
+    "start": "node validador.js",
+    "test": "node test.js"
+  },
+  "keywords": ["validador", "emails", "csv"],
+  "author": "Claude AI",
+  "license": "MIT"
+}
