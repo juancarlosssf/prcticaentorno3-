@@ -38,7 +38,7 @@ class ValidadorEmails {
   // Validar todos los emails
   validar() {
     this.socios.forEach(socio => {
-      if (this.esEmailValido(socio.correo)) {
+      if (!this.esEmailValido(socio.correo)) {
         this.validos.push(socio);
       } else {
         this.invalidos.push(socio);
