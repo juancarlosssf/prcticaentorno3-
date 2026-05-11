@@ -1,0 +1,8 @@
+nombre,correo,notas
+Ana Pérez,ana@ateneo.org,socia activa
+Luis Gómez,luis-mal-email,sin @
+María López,maria_lopez@sub.dominio.co,OK
+Pedro Ruiz,,vacío
+Carmen Díaz,carmen @ateneo.org,espacio
+Javier Núñez,"javier@ateneo.org",comillas en CSV
+Elena Soto,elena@@ateneo.org,doble arroba

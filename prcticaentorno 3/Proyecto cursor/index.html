@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validador de correos — Socios Ateneo</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <p class="eyebrow">Práctica · Entornos de desarrollo</p>
+        <h1>Validador de correos de socios</h1>
+        <p class="lede">
+          Carga un CSV con una columna de correo (o pega el texto). Se marcan filas
+          <strong>válidas</strong> e <strong>inválidas</strong> y puedes descargar el resultado.
+        </p>
+      </div>
+    </header>
+
+    <main id="main" class="wrap main">
+      <section class="panel" aria-labelledby="ingreso-title">
+        <h2 id="ingreso-title">Entrada</h2>
+
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Zona para soltar archivo CSV">
+          <input
+            type="file"
+            id="fileInput"
+            accept=".csv,text/csv,text/plain,.txt"
+            class="visually-hidden"
+            aria-label="Seleccionar archivo CSV"
+          />
+          <p class="dropzone__text">
+            Arrastra un <strong>CSV</strong> aquí o
+            <button type="button" class="linkish" id="pickFileBtn">elige archivo</button>
+          </p>
+          <p class="dropzone__hint">Separador: coma o punto y coma · codificación UTF-8 recomendada</p>
+        </div>
+
+        <label class="field">
+          <span class="field__label">O pega el contenido del CSV</span>
+          <textarea
+            id="pasteArea"
+            rows="6"
+            spellcheck="false"
+            placeholder="nombre,correo&#10;Ana Pérez,ana@ateneo.org&#10;Luis Gómez,luis-mal-email"
+          ></textarea>
+        </label>
+
+        <div class="row-actions">
+          <button type="button" class="btn btn-primary" id="validateBtn">Validar</button>
+          <button type="button" class="btn btn-ghost" id="clearBtn">Limpiar</button>
+          <button type="button" class="btn btn-ghost" id="loadSampleBtn">Cargar ejemplo</button>
+        </div>
+
+        <p class="status" id="statusMsg" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel panel--stats" id="statsPanel" hidden aria-live="polite">
+        <h2 class="visually-hidden">Resumen</h2>
+        <ul class="stats">
+          <li><span class="stats__n" id="statTotal">0</span> filas</li>
+          <li><span class="stats__n stats__n--ok" id="statOk">0</span> válidas</li>
+          <li><span class="stats__n stats__n--bad" id="statBad">0</span> inválidas</li>
+        </ul>
+        <div class="row-actions row-actions--end">
+          <button type="button" class="btn btn-secondary" id="exportBtn" disabled>
+            Descargar CSV con resultado
+          </button>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="tabla-title">
+        <div class="panel__head">
+          <h2 id="tabla-title">Resultado</h2>
+          <label class="filter">
+            <span class="visually-hidden">Filtrar por estado</span>
+            <select id="filterSelect" aria-label="Filtrar filas por estado">
+              <option value="all">Todas</option>
+              <option value="valid">Solo válidas</option>
+              <option value="invalid">Solo inválidas</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="table-wrap" tabindex="0">
+          <table class="data-table" id="resultTable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fila original</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Motivo</th>
+              </tr>
+            </thead>
+            <tbody id="resultBody"></tbody>
+          </table>
+        </div>
+        <p class="empty-hint" id="emptyHint">Aún no hay datos. Carga o pega un CSV y pulsa Validar.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          Abre <code>index.html</code> con doble clic. Si algo no responde, usa un servidor local en esta carpeta
+          (por ejemplo en VS Code/Cursor: “Live Server”) — algunos navegadores restringen scripts avanzados al abrir
+          archivos directamente desde el disco.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+  </body>
+</html>
